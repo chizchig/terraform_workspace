@@ -1,3 +1,3 @@
-variable "vpc_id" {
+variable "region" {
   type = string
 }
