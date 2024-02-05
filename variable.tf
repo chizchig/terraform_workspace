@@ -14,3 +14,11 @@ variable "internal_subnet_cidr_blocks" {
 variable "region" {
   type = string
 }
+
+variable "aws_access_key" {
+  type = string
+}
+
+variable "aws_secret_key" {
+  type = string
+}
