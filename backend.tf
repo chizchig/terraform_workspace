@@ -10,5 +10,6 @@ terraform {
       source  = "hashicorp/aws"
       version = "~> 5.35.0"
     }
+    skip_credentials_validation = true
   }
 }
