@@ -1,4 +1,4 @@
-resource "aws_security_group" "elasticache_security_group" {
+resource "aws_security_group" "aurora_sg" {
   name        = var.security_group_name
   description = "Security group for ElastiCache"
   vpc_id      = aws_vpc.vpc.id

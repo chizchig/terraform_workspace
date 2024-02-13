@@ -18,3 +18,6 @@ output "internal_route_table_ids" {
   value = [for rt in aws_route_table.internal_route_tables : rt.id]
 }
 
+output "aws_security_group_name" {
+  value = aws_security_group.aurora_sg
+}
