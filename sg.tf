@@ -1,7 +1,7 @@
 resource "aws_security_group" "elasticache_security_group" {
   name        = var.security_group_name
   description = "Security group for ElastiCache"
-  vpc_id      = module.aws_vpc.vpc.id
+  vpc_id      = aws_vpc.vpc.id
 
   dynamic "ingress" {
     for_each = var.ingress_rules
