@@ -6,9 +6,9 @@
 #   value = [for subnet in aws_subnet.external_subnets : subnet.id]
 # }
 
-# output "internal_subnet_ids" {
-#   value = [for subnet in aws_subnet.internal_subnets : subnet.id]
-# }
+output "internal_subnet_ids" {
+  value = [for subnet in aws_subnet.internal_subnets : subnet.id]
+}
 
 # output "external_route_table_ids" {
 #   value = [for rt in aws_route_table.external_route_tables : rt.id]
