@@ -38,10 +38,10 @@ variable "security_group_name" {
   description = "The name of the security group for ElastiCache"
 }
 
-variable "vpc_id" {
-  type        = string
-  description = "The VPC ID for the ElastiCache security group"
-}
+# variable "vpc_id" {
+#   type        = string
+#   description = "The VPC ID for the ElastiCache security group"
+# }
 
 variable "ingress_rules" {
   type = list(object({

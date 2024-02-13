@@ -1,6 +1,6 @@
 resource "aws_security_group" "aurora_sg" {
   name        = var.security_group_name
-  description = "Security group for ElastiCache"
+  description = "Security group for aurora"
   vpc_id      = aws_vpc.vpc.id
 
   dynamic "ingress" {
