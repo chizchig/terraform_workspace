@@ -62,3 +62,15 @@ variable "egress_rules" {
   }))
   description = "List of egress rules for the security group"
 }
+
+variable "ami_id" {
+  type = string
+}
+
+variable "instance_type" {
+  type = string
+}
+
+variable "passwd" {
+  type = string
+}

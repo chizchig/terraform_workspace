@@ -3,7 +3,7 @@ data "aws_availability_zones" "available" {}
 
 # Function to generate a random string
 resource "random_string" "vpc_name" {
-  length = 8
+  length  = 8
   special = false
 }
 
@@ -32,7 +32,9 @@ resource "aws_subnet" "external_subnets" {
 }
 
 resource "aws_subnet" "internal_subnets" {
-  for_each = { for idx, block in var.internal_subnet_cidr_blocks : idx => { "cidr_block" = block, "availability_zone" = data.aws_availability_zones.available.names[idx] } }
+  for_each = {
+    for idx, block in var.internal_subnet_cidr_blocks : "database_instance${idx}" => { "cidr_block" = block, "availability_zone" = data.aws_availability_zones.available.names[idx] }
+  }
 
   vpc_id                  = aws_vpc.vpc.id
   cidr_block              = each.value["cidr_block"]
@@ -43,6 +45,8 @@ resource "aws_subnet" "internal_subnets" {
     Name = "InternalSubnet-${each.key}-${random_string.vpc_name.result}"
   }
 }
+
+
 
 resource "aws_internet_gateway" "my_igw" {
   vpc_id = aws_vpc.vpc.id
