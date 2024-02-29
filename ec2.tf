@@ -6,7 +6,21 @@ resource "aws_instance" "ec2" {
   subnet_id                   = aws_subnet.external_subnets[0].id
   vpc_security_group_ids      = [aws_security_group.aurora_sg.id]
   associate_public_ip_address = true
-#   user_data                   = file("${path.module}/jenkins.sh")
+
+  root_block_device {
+    volume_size           = "100"
+    volume_type           = "gp2"
+    encrypted             = true
+    delete_on_termination = true
+  }
+    ebs_block_device {
+    device_name           = "/dev/xvda"
+    volume_size           = "1000"
+    volume_type           = "gp2"
+    encrypted             = true
+    delete_on_termination = true
+  }
+
 
   connection {
     type        = "ssh"
