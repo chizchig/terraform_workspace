@@ -27,9 +27,11 @@ Multi-platform analytics and monitoring solution for metric visualization.
 ## Python 3.11: 
 Latest version of Python programming language for scripting and automation.
 
-## Kubectl: Kubernetes command-line tool for interacting with Kubernetes clusters.
+## Kubectl: 
+Kubernetes command-line tool for interacting with Kubernetes clusters.
 
-## Minikube: Local Kubernetes cluster setup tool for development and testing.
+## Minikube: 
+Local Kubernetes cluster setup tool for development and testing.
 
 ## Setup Instructions
 ## 1.	Instance Provisioning:
@@ -38,7 +40,7 @@ Latest version of Python programming language for scripting and automation.
 
 ## 2.	Tool Bootstrapping:
 
-    • Execute the provided script to bootstrap all tools onto the Super Instance.
+    •   Execute the provided script to bootstrap all tools onto the Super Instance.
     •	Confirm successful installation and configuration of each tool.
 
 ## 3.	Configuration and Customization:
@@ -62,6 +64,6 @@ Latest version of Python programming language for scripting and automation.
     •	Documentation: Maintain comprehensive documentation for reference and 
         troubleshooting.
 
-    By adhering to these instructions, you can effectively set up a Super Instance with     all essential tools bootstrapped, ready to support your development and deployment 
+    ## By adhering to these instructions, you can effectively set up a Super Instance with     all essential tools bootstrapped, ready to support your development and deployment 
     endeavors seamlessly
 
