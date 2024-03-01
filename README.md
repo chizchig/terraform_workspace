@@ -6,23 +6,23 @@ This guide details the setup process for a Super Instance, provisioned with an i
 
 ## Bootstrapped Tools
 
-Jenkins: Automation server for continuous integration and continuous delivery (CI/CD) pipelines.
+## Jenkins: Automation server for continuous integration and continuous delivery (CI/CD) pipelines.
 
-GIT: Version control system facilitating efficient source code management.
+## GIT: Version control system facilitating efficient source code management.
 
-Terraform: Infrastructure as code (IaC) tool for provisioning and managing infrastructure resources.
+## Terraform: Infrastructure as code (IaC) tool for provisioning and managing infrastructure resources.
 
-Docker: Platform for developing, shipping, and running applications via containerization.
+## Docker: Platform for developing, shipping, and running applications via containerization.
 
-Prometheus: Open-source monitoring and alerting toolkit for collecting and querying metrics.
+## Prometheus: Open-source monitoring and alerting toolkit for collecting and querying metrics.
 
-Grafana: Multi-platform analytics and monitoring solution for metric visualization.
+## Grafana: Multi-platform analytics and monitoring solution for metric visualization.
 
-Python 3.11: Latest version of Python programming language for scripting and automation.
+## Python 3.11: Latest version of Python programming language for scripting and automation.
 
-Kubectl: Kubernetes command-line tool for interacting with Kubernetes clusters.
+## Kubectl: Kubernetes command-line tool for interacting with Kubernetes clusters.
 
-Minikube: Local Kubernetes cluster setup tool for development and testing.
+## Minikube: Local Kubernetes cluster setup tool for development and testing.
 
 Setup Instructions
 1.	Instance Provisioning:
