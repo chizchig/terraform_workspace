@@ -40,7 +40,7 @@ Local Kubernetes cluster setup tool for development and testing.
 
 ## 2.	Tool Bootstrapping:
 
-    •     Execute the provided script to bootstrap all tools onto the Super Instance.
+    •       Execute the provided script to bootstrap all tools onto the Super Instance.
     •	Confirm successful installation and configuration of each tool.
 
 ## 3.	Configuration and Customization:
@@ -54,14 +54,14 @@ Local Kubernetes cluster setup tool for development and testing.
     •	Conduct testing to ensure seamless operation and interoperability.
 
 ## Additional Considerations
-    •	Maintenance and Updates: Regularly update and maintain installed tools for 
+    • Maintenance and Updates: Regularly update and maintain installed tools for 
         security and performance.
-    •	Resource Monitoring: Monitor resource utilization on the Super Instance to 
+    • Resource Monitoring: Monitor resource utilization on the Super Instance to 
         prevent performance issues.
-    •	Backup and Recovery: Implement robust backup and recovery strategies for 
+    • Backup and Recovery: Implement robust backup and recovery strategies for 
         critical 
         data and configurations.
-    •	Documentation: Maintain comprehensive documentation for reference and 
+    • Documentation: Maintain comprehensive documentation for reference and 
         troubleshooting.
 
     By adhering to these instructions, you can effectively set up a Super Instance with     all essential tools bootstrapped, ready to support your development and deployment 
