@@ -1,10 +1,10 @@
 ## SUPER INSTANCE
 
-Overview
+## Overview
 
 This guide details the setup process for a Super Instance, provisioned with an instance type of t2.medium. The Super Instance is configured within a 2-tiers network and preloaded with essential tools for streamlined development and deployment workflows.
 
-Bootstrapped Tools
+## Bootstrapped Tools
 
 Jenkins: Automation server for continuous integration and continuous delivery (CI/CD) pipelines.
 
