@@ -42,6 +42,10 @@ resource "aws_instance" "ec2" {
     ]
   }
   depends_on = [aws_instance.ec2]
+
+  tags = {
+    Name = "Super_Instance"
+  }
 }
 
   
