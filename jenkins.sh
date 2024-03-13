@@ -100,3 +100,27 @@ sudo curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-l
 sudo rpm -ivh minikube-latest.x86_64.rpm
 
 echo "Python 3.11 and Minikube installation completed."
+
+# Download and extract the latest version
+sudo wget "https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-$latest_version.zip" -O sonarqube-latest.zip
+sudo unzip sonarqube-latest.zip -d /opt/
+
+# Stop existing SonarQube service
+echo "Stopping existing SonarQube service..."
+sudo /opt/sonarqube/bin/linux-x86-64/sonar.sh stop
+
+# Replace existing installation with the latest version
+sudo rm -rf /opt/sonarqube
+sudo mv /opt/sonarqube-$latest_version /opt/sonarqube
+
+# Start SonarQube service
+echo "Starting SonarQube service..."
+sudo /opt/sonarqube/bin/linux-x86-64/sonar.sh start
+
+# Enable SonarQube service to start on boot
+echo "Enabling SonarQube service..."
+sudo systemctl enable sonarqube
+
+# Check if SonarQube is running
+echo "Checking SonarQube status..."
+sudo /opt/sonarqube/bin/linux-x86-64/sonar.sh status
