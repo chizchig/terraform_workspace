@@ -37,8 +37,8 @@ resource "aws_instance" "ec2" {
 
   provisioner "remote-exec" {
     inline = [
-      "chmod +x /tmp/jenkins.sh",
-      "/tmp/jenkins.sh"
+      "sudo chmod +x /tmp/jenkins.sh",
+      "sudo /tmp/jenkins.sh"
     ]
   }
   depends_on = [aws_instance.ec2]

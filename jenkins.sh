@@ -101,26 +101,97 @@ sudo rpm -ivh minikube-latest.x86_64.rpm
 
 echo "Python 3.11 and Minikube installation completed."
 
-# Download and extract the latest version
-sudo wget "https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-$latest_version.zip" -O sonarqube-latest.zip
-sudo unzip sonarqube-latest.zip -d /opt/
+# SonarQube Installation
 
-# Stop existing SonarQube service
-echo "Stopping existing SonarQube service..."
-sudo /opt/sonarqube/bin/linux-x86-64/sonar.sh stop
+# echo "Starting SonarQube installation script..."
 
-# Replace existing installation with the latest version
-sudo rm -rf /opt/sonarqube
-sudo mv /opt/sonarqube-$latest_version /opt/sonarqube
+# # Check if the script is running as root
+# if [ "$EUID" -ne 0 ]; then
+#     echo "Please run this script as root or with sudo."
+#     exit 1
+# fi
 
-# Start SonarQube service
-echo "Starting SonarQube service..."
-sudo /opt/sonarqube/bin/linux-x86-64/sonar.sh start
+# # Install required packages
+# echo "Installing required packages..."
+# yum install -y unzip wget
 
-# Enable SonarQube service to start on boot
-echo "Enabling SonarQube service..."
-sudo systemctl enable sonarqube
+# # Function to download SonarQube archive with retries
+# download_sonarqube_archive() {
+#     local sonarqube_url="https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-10.4.zip"
+#     local sonarqube_zip="sonarqube-10.4.zip"
+#     local retry_count=3
+#     local retry_delay=10
+    
+#     echo "Downloading SonarQube archive..."
+    
+#     for ((i = 1; i <= retry_count; i++)); do
+#         wget "${sonarqube_url}" -O "${sonarqube_zip}" && break
+#         echo "Failed to download SonarQube archive (attempt $i/$retry_count). Retrying in $retry_delay seconds..."
+#         sleep $retry_delay
+#     done
+    
+#     # Check if download was successful
+#     if [ ! -f "${sonarqube_zip}" ]; then
+#         echo "Failed to download SonarQube archive after $retry_count attempts. Exiting."
+#         exit 1
+#     fi
+    
+#     echo "SonarQube archive downloaded successfully."
+# }
 
-# Check if SonarQube is running
-echo "Checking SonarQube status..."
-sudo /opt/sonarqube/bin/linux-x86-64/sonar.sh status
+# # Call the function to download the SonarQube archive
+# download_sonarqube_archive
+
+# # Create SonarQube installation directory
+# install_dir="/opt/sonarqube"
+# mkdir -p "${install_dir}"
+
+# # Extract SonarQube archive
+# echo "Extracting SonarQube archive..."
+# unzip -qq "${sonarqube_zip}" -d "${install_dir}" || { echo "Failed to extract SonarQube archive."; exit 1; }
+
+# # Stop existing SonarQube service
+# echo "Stopping existing SonarQube service..."
+# systemctl stop sonarqube || true
+
+# # Replace existing installation with the latest version
+# rm -rf "${install_dir}/sonarqube"
+# mv "${install_dir}/sonarqube-${sonarqube_version}" "${install_dir}/sonarqube"
+
+# # Create SonarQube service file
+# echo "Creating SonarQube service file..."
+# cat << EOF > /etc/systemd/system/sonarqube.service
+# [Unit]
+# Description=SonarQube service
+# After=syslog.target network.target
+
+# [Service]
+# Type=simple
+# ExecStart=/opt/sonarqube/bin/linux-x86-64/sonar.sh start
+# ExecStop=/opt/sonarqube/bin/linux-x86-64/sonar.sh stop
+# User=root
+# Restart=always
+# LimitNOFILE=65536
+# LimitNPROC=4096
+
+# [Install]
+# WantedBy=multi-user.target
+# EOF
+
+# # Reload systemd configuration
+# echo "Reloading systemd configuration..."
+# systemctl daemon-reload
+
+# # Start SonarQube service
+# echo "Starting SonarQube service..."
+# systemctl start sonarqube
+
+# # Enable SonarQube service to start on boot
+# echo "Enabling SonarQube service..."
+# systemctl enable sonarqube
+
+# # Check if SonarQube is running
+# echo "Checking SonarQube status..."
+# systemctl status sonarqube
+
+# echo "SonarQube installation completed."
